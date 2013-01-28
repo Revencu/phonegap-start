@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta name=viewport content="user-scalable=no,width=device-width" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script> 
+<script>
+$(document).bind("mobileinit", function () {
+        $.mobile.allowCrossDomainPages = true;
+        $.support.cors = true;
+    });
+    
+function login(){
+$.ajax({url: "http://revencu.brinkster.net/login.asp", 
+  data:{name: document.getElementById('name').value}, 
+	crossDomain: true, success: function(html){alert(html)},
+	dataType:'html'})
+}
+</script>
+</head> 
+
+<body> 
+
+<div data-theme="d" data-role=page id=home>
+  <div data-role=header data-position=fixed>
+    <h1>I'm Here!</h1>
+  </div>
+
+  <div align="center" data-role=content><img src="images/000.jpg">
+  <table width="100%">
+  <tr><td><label for="basic">Username:</label></td><td><input type="text" name="name" id="name" /></td></tr>
+  <tr><td><label for="basic">Password:</label></td><td><input type="password" name="name" id="basic" /></td></tr>
+  <tr><td colspan="2"><button onclick="login()" data-icon="check" data-theme="b" name="login" value="submit-value">Login</button></td></tr>
+  <tr><td colspan="2"><button data-icon="alert" type="submit" data-theme="b" name="password" value="submit-value">Forgot Password</button></td></tr>
+  <tr><td colspan="2"><button data-icon="star" type="submit" data-theme="b" name="register" value="submit-value">Register New User</button></td></tr>
+   </table>
+		
+  </div>
+<div data-role=footer data-position=fixed>
+<h1>Copyrights 2013</h1>
+</div>
+</div>
+  </body>
+</html>
